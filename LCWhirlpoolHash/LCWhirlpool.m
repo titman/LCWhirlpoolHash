@@ -101,6 +101,8 @@
         NSString * resut = [self.web stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"LCHASH(\"%@\")", self.string]];
         
         self.completion(resut.length ? nil : [[NSError alloc] initWithDomain:@"An error occurred" code:1 userInfo:nil], resut);
+        self.completion = nil;
+        self.string = nil;
     }
 }
 
